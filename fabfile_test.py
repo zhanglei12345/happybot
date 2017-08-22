@@ -1,6 +1,6 @@
 from fabric.api import *
 
-env.hosts = ['root@198.181.59.210:26580']
+#env.hosts = ['user@ip:port']
 
 def prepare():
     local("whoami")
