@@ -18,7 +18,7 @@ happybot
 
 * 构建：`docker build -t happybot:v1 .`
 
-* 运行：`docker run -d --env 'TELEGRAM_TOKEN=XXX' --env 'APPKEY=XXX' happybot`
+* 运行：`docker run -d --env 'TELEGRAM_TOKEN=XXX' --env 'APPKEY=XXX' happybot:v1`
 
 ### Supervisor (不再使用)
 
