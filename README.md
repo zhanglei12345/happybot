@@ -1,5 +1,6 @@
-#### my bot for Telegram
+#### My bot for Telegram
 
+happybot
 
 ## Features  
 
@@ -9,7 +10,17 @@
 4. echo your text
 5. 待开发...
 
-## Deploy
+利用 Docker 或 Supervisor 部署。
+
+## Docker
+
+* 编写 requirements.txt 和 Dockerfile。
+
+* 构建：`docker build -t happybot:v1 .`
+
+* 运行：`docker run -it --env 'TELEGRAM_TOKEN=XXX' --env 'APPKEY=XXX' happybot`
+
+## Supervisor (不再使用)
 
 * 在VPS服务器上利用Supervisor工具来监控服务进程。编写一个Supervisor的配置文件happybot.conf，存放到/etc/supervisor/conf.d/目录下：
 	
@@ -28,7 +39,8 @@
 	stdout_logfile          = /root/study/happybot/log/app.log
 	```
 	
-* 在本地开发机上利用Fabric来进行自动化部署。编写fabfile.py。
+* 在本地开发机上利用 Fabric 来进行自动化部署。编写 fabfile.py。
+
 * 部署：`fab deploy`
 
 ## Links
