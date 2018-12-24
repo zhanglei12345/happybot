@@ -1,2 +1,3 @@
 *.py[cod]
 fabfile.py
+.vscode
