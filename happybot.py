@@ -1,11 +1,9 @@
 # -*- coding: utf-8 -*-
 
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
-import logging, os, sys
+import logging, os
 import requests, json, urllib
 
-reload(sys)
-sys.setdefaultencoding('utf-8')
 
 # Enable logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -33,17 +31,17 @@ def tangshi_songci(bot,update):
     data["pagesize"] = 1
     data["pagenum"] = 1
 
-    url_values = urllib.urlencode(data)
+    url_values = urllib.parse.urlencode(data)
     if(cmd == "/tangshi"):
         url = "http://api.jisuapi.com/tangshi/search" + "?" + url_values
     else:
         url = "http://api.jisuapi.com/songci/search" + "?" + url_values
 
     req = requests.get(url)
-    html = unicode(req.text).encode('utf-8')
-    jsonarr = json.loads(html.read())
+    html = req.text
+    jsonarr = json.loads(html)
 
-    if jsonarr["status"] != u'0':
+    if jsonarr["status"] != '0':
         bot.send_message(chat_id=update.message.chat_id, text=jsonarr["msg"])
         return
 
@@ -92,8 +90,7 @@ def run():
     updater.idle()
 
 def parse_cmd_text(text):
-    # Telegram understands UTF-8, so encode text for unicode compatibility
-    text = text.encode('utf-8')
+
     cmd = None
     if '/' in text:
         try:

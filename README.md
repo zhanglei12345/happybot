@@ -10,17 +10,17 @@ happybot
 4. echo your text
 5. 待开发...
 
-利用 Docker 或 Supervisor 部署。
+## 利用 Docker 或 Supervisor 部署。
 
-## Docker
+### Docker
 
 * 编写 requirements.txt 和 Dockerfile。
 
 * 构建：`docker build -t happybot:v1 .`
 
-* 运行：`docker run -it --env 'TELEGRAM_TOKEN=XXX' --env 'APPKEY=XXX' happybot`
+* 运行：`docker run -d --env 'TELEGRAM_TOKEN=XXX' --env 'APPKEY=XXX' happybot`
 
-## Supervisor (不再使用)
+### Supervisor (不再使用)
 
 * 在VPS服务器上利用Supervisor工具来监控服务进程。编写一个Supervisor的配置文件happybot.conf，存放到/etc/supervisor/conf.d/目录下：
 	
